@@ -5,4 +5,6 @@
     <string name="animals">Animals</string>
     <string name="tools">Tools</string>
     <string name="category">Category</string>
+    <string name="i_know_this_word">I know this word</string>
+    <string name="i_don_t_know_this_word">I don\'t know this word</string>
 </resources>
