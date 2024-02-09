@@ -3,4 +3,6 @@
     <string name="flashcards">Flashcards</string>
     <string name="choose_your_set">Choose your set:</string>
     <string name="animals">Animals</string>
+    <string name="tools">Tools</string>
+    <string name="category">Category</string>
 </resources>

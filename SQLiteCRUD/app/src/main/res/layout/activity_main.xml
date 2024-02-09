@@ -8,36 +8,50 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:textColor="#ffff00"
         android:id="@+id/tvFlashcards"
         style="@style/TextAppearance.AppCompat.Display1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/flashcards"
+        android:textColor="@color/yellow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:textColor="#ffff00"
         android:id="@+id/tvChooseset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:text="@string/choose_your_set"
+        android:textColor="@color/yellow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvFlashcards" />
 
     <Button
-        android:background="@drawable/my_button"
         android:id="@+id/btnAnimals"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/my_button"
         android:text="@string/animals"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/yellow"
+        app:layout_constraintBottom_toTopOf="@+id/btnTools"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvChooseset" />
+
+    <Button
+        android:id="@+id/btnTools"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_button"
+        android:text="@string/tools"
+        android:textColor="@color/yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAnimals" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/blue_gradient"
     tools:context=".FlashCardActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,13 +19,23 @@
         app:layout_constraintWidth_percent="0.9">
 
         <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/category"
+            style="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintBottom_toTopOf="@+id/tvFlashCardtext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
             android:id="@+id/tvFlashCardtext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="100dp"
-            android:elevation="2dp"
             android:background="@drawable/my_rect"
-            app:layout_constraintBottom_toTopOf="@+id/btnKnownWord"
+            android:elevation="2dp"
+            android:padding="150dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -35,20 +46,33 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@drawable/icons8_ok__1_"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnUnKnownWord"
+            app:layout_constraintBottom_toBottomOf="@+id/btnHalfKnownWord"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/btnHalfKnownWord"
+            app:layout_constraintTop_toTopOf="@+id/btnHalfKnownWord" />
+
+        <ImageButton
+            android:id="@+id/btnHalfKnownWord"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/baseline_help_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnKnownWord"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnUnKnownWord"
+            app:layout_constraintTop_toBottomOf="@+id/tvFlashCardtext" />
 
         <ImageButton
             android:id="@+id/btnUnKnownWord"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@drawable/baseline_cancel_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/btnHalfKnownWord"
+            app:layout_constraintEnd_toStartOf="@+id/btnHalfKnownWord"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/btnKnownWord"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnHalfKnownWord"
             app:layout_constraintWidth_percent="0.5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
