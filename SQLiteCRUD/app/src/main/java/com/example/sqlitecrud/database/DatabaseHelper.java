@@ -108,7 +108,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put("eng", flashCard.getEng());
         values.put("pl", flashCard.getPl());
         values.put("counter", correct ? flashCard.getCounter() + 1 : 0);
-        values.put("guess_time", Calendar.getInstance().getTimeInMillis());
+        values.put("guess_time", correct ? Calendar.getInstance().getTimeInMillis() : 0);
 
         db.update(TABLE_NAME, values, "eng=?", new String[]{flashCard.getEng()});
         db.close();

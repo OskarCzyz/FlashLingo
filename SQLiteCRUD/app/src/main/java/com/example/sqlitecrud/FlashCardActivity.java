@@ -28,6 +28,7 @@ public class FlashCardActivity extends AppCompatActivity {
     private TextView tvFlashCardtext;
     private TextView tvStatus;
 
+    private int right_counter = 0, wrong_counter = 0;
     private int currentFlashCardIndex = -1;
     private String EnglishText = "Cat";
     private String PolishText = "Kot";
@@ -85,14 +86,20 @@ public class FlashCardActivity extends AppCompatActivity {
 
         //Known word button
         btnKnownWord.setOnClickListener(view -> {
-            databaseHelper.updateTable(FlashCardSet.get(currentFlashCardIndex), SET_NAME, true);
-            nextFlashCard();
+            if (currentFlashCardIndex < FlashCardSet.size()) {
+                right_counter++;
+                databaseHelper.updateTable(FlashCardSet.get(currentFlashCardIndex), SET_NAME, true);
+                nextFlashCard();
+            }
         });
 
         //Unknown word button
         btnUnKnownWord.setOnClickListener(view -> {
-            databaseHelper.updateTable(FlashCardSet.get(currentFlashCardIndex), SET_NAME, false);
-            nextFlashCard();
+            if (currentFlashCardIndex < FlashCardSet.size()) {
+                wrong_counter++;
+                databaseHelper.updateTable(FlashCardSet.get(currentFlashCardIndex), SET_NAME, false);
+                nextFlashCard();
+            }
         });
     }
     //Get flashcards from set
@@ -105,8 +112,8 @@ public class FlashCardActivity extends AppCompatActivity {
             long guess = cursor.getLong(4);
             FlashCard flashCard = new FlashCard(eng, pl, counter, guess);
             // check if cooldown has passed
-            int cooldown = (int) (60 * Math.pow(2,flashCard.getCounter()) * 100);
-            if (flashCard.getGuess_time() + cooldown + 1000 <= Calendar.getInstance().getTimeInMillis()) FlashCardSet.add(flashCard);
+            int cooldown = (int) (30 * Math.pow(2,flashCard.getCounter()) * 1000);
+            if (flashCard.getGuess_time() + cooldown <= Calendar.getInstance().getTimeInMillis()) FlashCardSet.add(flashCard);
         }
 
     }
@@ -117,9 +124,16 @@ public class FlashCardActivity extends AppCompatActivity {
         currentFlashCardIndex++;
         if (currentFlashCardIndex >= FlashCardSet.size()) {
             if (FlashCardSet.size() == 0) {
-                new MaterialAlertDialogBuilder(FlashCardActivity.this).setTitle("Not enough time has passed").setMessage("You still remember those words pretty well!").setPositiveButton("Ok", (dialogInterface, i) -> finish()).setCancelable(false).show();
+//                new MaterialAlertDialogBuilder(FlashCardActivity.this).setTitle("Not enough time has passed").setMessage("You still remember those words pretty well!").setPositiveButton("Ok", (dialogInterface, i) -> finish()).setCancelable(false).show();
+                finish();
             } else {
-                new MaterialAlertDialogBuilder(FlashCardActivity.this).setTitle("Good job!").setMessage("Congratulations you successfully reviewed set \"" + SET_NAME + "\". Now you may comeback to this set but only after some time passes, so you can check if you still remember those words. ").setPositiveButton("Ok", (dialogInterface, i) -> finish()).setCancelable(false).show();
+                String msg;
+                if (wrong_counter == 0) {
+                    msg = "You know all of those words!\nYou can still return later to review them again.";
+                } else {
+                    msg = right_counter + " correct\n" + wrong_counter + "wrong\nYou know " + (20 - FlashCardSet.size() + right_counter)+ "/20 words overall.";
+                }
+                new MaterialAlertDialogBuilder(FlashCardActivity.this).setTitle("Score report").setMessage(msg).setPositiveButton("Ok", (dialogInterface, i) -> finish()).setCancelable(false).show();
             }
         } else {
             EnglishText = FlashCardSet.get(currentFlashCardIndex).getEng();
