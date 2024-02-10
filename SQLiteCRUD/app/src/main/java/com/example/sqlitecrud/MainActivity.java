@@ -14,10 +14,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button btnAnimals = findViewById(R.id.btnAnimals);
+        Button btnTools = findViewById(R.id.btnTools);
+        Button btnPlants = findViewById(R.id.btnPlants);
 
         btnAnimals.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, FlashCardActivity.class);
             intent.putExtra("SET", "animals");
+            startActivity(intent);
+        });
+        btnTools.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, FlashCardActivity.class);
+            intent.putExtra("SET", "tools");
+            startActivity(intent);
+        });
+        btnPlants.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, FlashCardActivity.class);
+            intent.putExtra("SET", "plants");
             startActivity(intent);
         });
     }

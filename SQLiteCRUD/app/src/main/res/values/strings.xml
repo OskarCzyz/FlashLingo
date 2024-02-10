@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SQLiteCRUD</string>
+    <string name="app_name">FlashLingo</string>
     <string name="flashcards">Flashcards</string>
     <string name="choose_your_set">Choose your set:</string>
     <string name="animals">Animals</string>
