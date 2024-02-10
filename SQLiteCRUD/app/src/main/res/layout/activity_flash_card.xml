@@ -31,17 +31,29 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvFlashCardtext"
+            android:id="@+id/tvStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            tools:text="1/6"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toTopOf="@+id/tvFlashCardtext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCategory" />
+        <TextView
+            android:id="@+id/tvFlashCardtext"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             android:background="@drawable/my_rect"
             android:elevation="2dp"
-            android:padding="150dp"
+            android:gravity="center"
+            android:padding="10dp"
+            style="@style/TextAppearance.AppCompat.Display2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="123" />
+            tools:text="Stonoga kraaa" />
 
         <ImageButton
             android:contentDescription="@string/i_know_this_word"

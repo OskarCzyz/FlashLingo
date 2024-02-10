@@ -30,13 +30,25 @@
         app:layout_constraintTop_toBottomOf="@id/tvFlashcards" />
 
     <Button
+        android:id="@+id/btnPlants"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_button"
+        android:text="@string/plants"
+        android:textColor="@color/yellow"
+        app:layout_constraintBottom_toTopOf="@+id/btnTools"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAnimals" />
+
+    <Button
         android:id="@+id/btnAnimals"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:background="@drawable/my_button"
         android:text="@string/animals"
         android:textColor="@color/yellow"
-        app:layout_constraintBottom_toTopOf="@+id/btnTools"
+        app:layout_constraintBottom_toTopOf="@+id/btnPlants"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvChooseset" />
@@ -51,7 +63,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAnimals" />
+        app:layout_constraintTop_toBottomOf="@+id/btnPlants" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
