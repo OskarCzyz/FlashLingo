@@ -7,78 +7,65 @@
     android:background="@drawable/light_blue_gradient"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textColor="@color/dark_blue"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/tvChooseset"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ivLogo"
-        app:layout_constraintVertical_bias="0.763" />
-
     <ImageView
-        android:contentDescription="@string/logo"
         android:id="@+id/ivLogo"
-        android:scaleType="fitXY"
         style="@style/TextAppearance.AppCompat.Display1"
         android:layout_width="250dp"
         android:layout_height="250dp"
+        android:contentDescription="@string/logo"
+        android:scaleType="fitXY"
         android:src="@drawable/applogonobackground"
         android:textColor="@color/yellow"
-        app:layout_constraintBottom_toTopOf="@+id/tvChooseset"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.033" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/fancy_app_name"
+        android:textColor="@color/dark_blue"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvChooseset"
+        app:layout_constraintEnd_toEndOf="@+id/ivLogo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ivLogo"
+        app:layout_constraintTop_toTopOf="@+id/ivLogo"
+        app:layout_constraintVertical_bias="0.58" />
 
     <TextView
         android:id="@+id/tvChooseset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
         android:text="@string/choose_your_set"
         android:textColor="@color/dark_blue"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnAnimals"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
 
-    <TextView
-        android:id="@+id/tvStatusAnimals"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnAnimals"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/yellow"
+        android:layout_margin="20dp"
+        android:background="@drawable/my_button"
+        android:text="@string/animals"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/btnPlants"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAnimals"
-        tools:text="20/20" />
-
-    <TextView
-        android:id="@+id/tvStatusPlants"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/yellow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPlants"
-        tools:text="0/20" />
-
-    <TextView
-        android:id="@+id/tvStatusTools"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/yellow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnTools"
-        tools:text="20/20" />
+        app:layout_constraintTop_toBottomOf="@+id/tvChooseset" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:layout_margin="20dp"
         android:id="@+id/btnPlants"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
@@ -90,29 +77,51 @@
         app:layout_constraintStart_toStartOf="@+id/btnAnimals"
         app:layout_constraintTop_toBottomOf="@+id/btnAnimals" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnAnimals"
-        android:layout_width="150dp"
+    <TextView
+        android:id="@+id/tvStatusPlants"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/my_button"
-        android:text="@string/animals"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/btnPlants"
+        android:textColor="@color/yellow"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvChooseset" />
+        app:layout_constraintTop_toBottomOf="@+id/btnPlants"
+        tools:text="0/20" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:layout_margin="20dp"
         android:id="@+id/btnTools"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:background="@drawable/my_button"
         android:text="@string/tools"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tvStatusTools"
         app:layout_constraintEnd_toEndOf="@+id/btnAnimals"
         app:layout_constraintStart_toStartOf="@+id/btnAnimals"
         app:layout_constraintTop_toBottomOf="@+id/btnPlants" />
+
+    <TextView
+        android:id="@+id/tvStatusTools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/yellow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnTools"
+        tools:text="20/20" />
+
+    <TextView
+        android:id="@+id/tvStatusAnimals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/yellow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAnimals"
+        tools:text="20/20" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

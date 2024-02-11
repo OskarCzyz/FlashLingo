@@ -131,7 +131,7 @@ public class FlashCardActivity extends AppCompatActivity {
                 if (wrong_counter == 0) {
                     msg = "You know all of those words!\nYou can still return later to review them again.";
                 } else {
-                    msg = right_counter + " correct\n" + wrong_counter + "wrong\nYou know " + (20 - FlashCardSet.size() + right_counter)+ "/20 words overall.";
+                    msg = right_counter + " correct\n" + wrong_counter + " to review\nYou know " + (20 - FlashCardSet.size() + right_counter)+ "/20 words from this set.";
                 }
                 new MaterialAlertDialogBuilder(FlashCardActivity.this).setTitle("Score report").setMessage(msg).setPositiveButton("Ok", (dialogInterface, i) -> finish()).setCancelable(false).show();
             }
